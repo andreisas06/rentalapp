@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:rental/app/sign_in/sign_in_button.dart';
+import 'package:rental/common_widgets/custom_raised_button.dart';
 
 class SignInPage extends StatelessWidget {
   @override
@@ -23,25 +25,54 @@ class SignInPage extends StatelessWidget {
           Text(
             'Sign In',
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 32, fontWeight: FontWeight.w600),
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          SizedBox(height: 48),
+          SignInButton(
+            text: 'Sign in with Google',
+            textColor: Colors.black87,
+            color: Colors.white,
+            onPressed: () {},
           ),
           SizedBox(
             height: 8,
           ),
-          RaisedButton(
-            child: Text(
-              'Sign In with Google',
-              style: TextStyle(
-                color: Colors.black87,
-                fontSize: 15,
-              ),
+          SignInButton(
+            text: 'Sign in with Facebook',
+            textColor: Colors.white,
+            color: Color(0xFF334D92),
+            onPressed: () {},
+          ),
+          SizedBox(
+            height: 8,
+          ),
+          SignInButton(
+            text: 'Sign in with email',
+            textColor: Colors.white,
+            color: Colors.teal[700],
+            onPressed: () {},
+          ),
+          SizedBox(
+            height: 8,
+          ),
+          Text(
+            'or',
+            style: TextStyle(
+              fontSize: 17,
+              color: Colors.black87,
             ),
-            color: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(16.0),
-              ),
-            ),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(
+            height: 8,
+          ),
+          SignInButton(
+            text: 'Sign in with email',
+            textColor: Colors.black,
+            color: Colors.lime[300],
             onPressed: () {},
           ),
         ],
