@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "348699647265",
+    "project_id": "rental-app-38ddd",
+    "storage_bucket": "rental-app-38ddd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348699647265:android:18fef7badc5990b173b260",
+        "android_client_info": {
+          "package_name": "com.andreisas.rental"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "348699647265-646i546npfb50gt8tnc6ln7h5im521pn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.andreisas.rental",
+            "certificate_hash": "01c1b509b876c78487ca57ecbc48354d3b47b1d0"
+          }
+        },
+        {
+          "client_id": "348699647265-mvi9krmbme58us09kh2954jsrivpequk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYNbP8g7uO5-NuP0DxjIppwl02xCIryDU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "348699647265-mvi9krmbme58us09kh2954jsrivpequk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
