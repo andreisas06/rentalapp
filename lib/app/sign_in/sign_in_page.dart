@@ -6,8 +6,12 @@ import 'package:rental/common_widgets/custom_raised_button.dart';
 
 class SignInPage extends StatelessWidget {
   void _signInAnonymously() async {
-    final userCredentials = await FirebaseAuth.instance.signInAnonymously();
-    print('${userCredentials.user.uid}');
+    try {
+      final userCredentials = await FirebaseAuth.instance.signInAnonymously();
+      print('${userCredentials.user.uid}');
+    } catch (e) {
+      print(e.toString());
+    }
   }
 
   @override
