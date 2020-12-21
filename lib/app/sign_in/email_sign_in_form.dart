@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:rental/common_widgets/form_submit_button.dart';
+import 'package:rental/services/auth.dart';
 
 enum EmailSignInFormType { signIn, register }
 
 class EmailSignInForm extends StatefulWidget {
+  EmailSignInForm({@required this.auth});
+  final AuthBase auth;
   @override
   _EmailSignInFormState createState() => _EmailSignInFormState();
 }
