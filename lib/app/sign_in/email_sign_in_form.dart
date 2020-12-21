@@ -15,11 +15,21 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  String get _email => _emailController.text;
+  String get _password => _passwordController.text;
   EmailSignInFormType _formType = EmailSignInFormType.signIn;
 
-  void _submit() {
-    print(
-        'email: ${_emailController.text}, password: ${_passwordController.text}');
+  void _submit() async {
+    try {
+      if (_formType == EmailSignInFormType.signIn) {
+        await widget.auth.signInWithEmailAndPassword(_email, _password);
+      } else {
+        await widget.auth.createUserWithEmailAndPassword(_email, _password);
+      }
+      Navigator.of(context).pop();
+    } catch (e) {
+      print(e.toString());
+    }
   }
 
   void _toggleFormType() {
@@ -40,38 +50,44 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
         ? 'Need an account? Register Now!'
         : 'Have an account? Sign In!';
     return [
-      TextField(
-        controller: _emailController,
-        decoration: InputDecoration(
-          labelText: 'Email',
-          hintText: 'test@test.com',
-        ),
-      ),
-      SizedBox(
-        height: 8,
-      ),
-      TextField(
-        controller: _passwordController,
-        decoration: InputDecoration(
-          labelText: 'Password',
-        ),
-        obscureText: true,
-      ),
-      SizedBox(
-        height: 8,
-      ),
+      _buildEmailTextField(),
+      SizedBox(height: 8.0),
+      _buildPasswordTextField(),
+      SizedBox(height: 8.0),
       FormSubmitButton(
         text: primaryText,
         onPressed: _submit,
       ),
-      SizedBox(
-        height: 8,
-      ),
+      SizedBox(height: 8.0),
       FlatButton(
         child: Text(secondaryText),
         onPressed: _toggleFormType,
-      )
+      ),
     ];
+  }
+
+  TextField _buildPasswordTextField() {
+    return TextField(
+      controller: _passwordController,
+      decoration: InputDecoration(
+        labelText: 'Password',
+      ),
+      obscureText: true,
+      textInputAction: TextInputAction.done,
+    );
+  }
+
+  TextField _buildEmailTextField() {
+    return TextField(
+      controller: _emailController,
+      decoration: InputDecoration(
+        labelText: 'Email',
+        hintText: 'test@test.com',
+      ),
+      autocorrect: false,
+      keyboardType: TextInputType.emailAddress,
+      textInputAction: TextInputAction.next,
+    );
   }
 
   @override
