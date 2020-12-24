@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:rental/app/landing_page.dart';
 import 'package:rental/services/auth.dart';
 
-
-Future<void> main() async{
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
