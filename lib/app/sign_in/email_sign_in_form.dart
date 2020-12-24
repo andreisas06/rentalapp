@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:rental/app/sign_in/validators.dart';
 import 'package:rental/common_widgets/form_submit_button.dart';
 import 'package:rental/services/auth.dart';
 
 enum EmailSignInFormType { signIn, register }
 
-class EmailSignInForm extends StatefulWidget {
+class EmailSignInForm extends StatefulWidget with EmailAndPasswordValidators {
   EmailSignInForm({@required this.auth});
   final AuthBase auth;
   @override
@@ -56,7 +57,9 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
         ? 'Need an account? Register Now!'
         : 'Have an account? Sign In!';
 
-    bool submitEnabled = _email.isNotEmpty && _password.isNotEmpty;
+    bool submitEnabled = widget.emailValidator.isValid(_email) &&
+        widget.passwordValidator.isValid(_password);
+
     return [
       _buildEmailTextField(),
       SizedBox(height: 8.0),
@@ -75,11 +78,13 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
   }
 
   TextField _buildPasswordTextField() {
+    bool passwordValid = widget.passwordValidator.isValid(_password);
     return TextField(
       controller: _passwordController,
       focusNode: _passwordFocusNode,
       decoration: InputDecoration(
         labelText: 'Password',
+        errorText: passwordValid ? null : widget.invalidPasswordErrorText,
       ),
       obscureText: true,
       textInputAction: TextInputAction.done,
@@ -89,13 +94,14 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
   }
 
   TextField _buildEmailTextField() {
+    bool emailvalid = widget.emailValidator.isValid(_email);
     return TextField(
       controller: _emailController,
       focusNode: _emailFocusNode,
       decoration: InputDecoration(
-        labelText: 'Email',
-        hintText: 'test@test.com',
-      ),
+          labelText: 'Email',
+          hintText: 'test@test.com',
+          errorText: emailvalid ? null : widget.invalidEmailErrorText),
       autocorrect: false,
       keyboardType: TextInputType.emailAddress,
       textInputAction: TextInputAction.next,
