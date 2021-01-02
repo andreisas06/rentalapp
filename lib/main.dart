@@ -15,12 +15,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return AuthProvider(
       auth: Auth(),
-          child: MaterialApp(
+      child: MaterialApp(
         title: 'Rental App',
         theme: ThemeData(primarySwatch: Colors.indigo),
-        home: LandingPage(
-          auth: Auth(),
-        ),
+        home: LandingPage(),
       ),
     );
   }
