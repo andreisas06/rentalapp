@@ -1,18 +1,28 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rental/app/sign_in/email_sign_in_page.dart';
 import 'package:rental/app/sign_in/sign_in_button.dart';
 import 'package:rental/app/sign_in/social_sign_in_button.dart';
+import 'package:rental/common_widgets/show_exception_alert_dialog.dart';
 import 'package:rental/services/auth.dart';
 
-
 class SignInPage extends StatelessWidget {
+  void _showSignInError(BuildContext context, Exception exception) {
+    if (exception is FirebaseException &&
+        exception.code == 'ERROR_ABORTED_BY_USER') {
+      return;
+    }
+    showExceptionAlertDialog(context,
+        title: 'Sign in failed', exception: exception);
+  }
+
   Future<void> _signInAnonymously(BuildContext context) async {
     try {
       final auth = Provider.of<AuthBase>(context, listen: false);
       await auth.signInAnonymously();
-    } catch (e) {
-      print(e.toString());
+    } on Exception catch (e) {
+      _showSignInError(context, e);
     }
   }
 
@@ -20,8 +30,8 @@ class SignInPage extends StatelessWidget {
     try {
       final auth = Provider.of<AuthBase>(context, listen: false);
       await auth.signInWithGoogle();
-    } catch (e) {
-      print(e.toString());
+    } on Exception catch (e) {
+      _showSignInError(context, e);
     }
   }
 
@@ -29,9 +39,7 @@ class SignInPage extends StatelessWidget {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         fullscreenDialog: true,
-        builder: (context) => EmailSignInPage(
-          
-        ),
+        builder: (context) => EmailSignInPage(),
       ),
     );
   }
@@ -72,7 +80,7 @@ class SignInPage extends StatelessWidget {
             text: 'Sign in with Google',
             textColor: Colors.black87,
             color: Colors.white,
-            onPressed:() => _signInWithGoogle(context),
+            onPressed: () => _signInWithGoogle(context),
           ),
           SizedBox(
             height: 8,
@@ -101,7 +109,7 @@ class SignInPage extends StatelessWidget {
             text: 'Go anonymous',
             textColor: Colors.black,
             color: Colors.lime[300],
-            onPressed:() => _signInAnonymously(context),
+            onPressed: () => _signInAnonymously(context),
           ),
         ],
       ),
