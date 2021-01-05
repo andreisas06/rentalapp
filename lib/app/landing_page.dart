@@ -1,9 +1,8 @@
-
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rental/app/home_page.dart';
+import 'package:rental/app/sidebar/sidebar_layout.dart';
 import 'package:rental/app/sign_in/sign_in_page.dart';
 import 'package:rental/services/auth.dart';
 
@@ -20,7 +19,7 @@ class LandingPage extends StatelessWidget {
           if (user == null) {
             return SignInPage();
           }
-          return HomePage();
+          return SideBarLayout();
         }
         return Scaffold(
           body: Center(
