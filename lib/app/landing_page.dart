@@ -17,9 +17,9 @@ class LandingPage extends StatelessWidget {
           final User user = snapshot.data;
 
           if (user == null) {
-            return SignInPage();
+            return SignInPage.create(context);
           }
-          return SideBarLayout();
+          return HomePage();
         }
         return Scaffold(
           body: Center(
