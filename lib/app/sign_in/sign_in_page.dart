@@ -8,19 +8,19 @@ import 'package:rental/app/sign_in/social_sign_in_button.dart';
 import 'package:rental/common_widgets/show_exception_alert_dialog.dart';
 import 'package:rental/services/auth.dart';
 
-class SignInPage extends StatefulWidget {
+class SignInPage extends StatelessWidget {
+  const SignInPage({Key key, @required this.bloc}) : super(key: key);
+  final SignInBloc bloc;
+
   static Widget create(BuildContext context) {
     return Provider<SignInBloc>(
       create: (_) => SignInBloc(),
-      child: SignInPage(),
+      child: Consumer<SignInBloc>(
+        builder: (_, bloc, __) => SignInPage(bloc: bloc),
+      ),
     );
   }
 
-  @override
-  _SignInPageState createState() => _SignInPageState();
-}
-
-class _SignInPageState extends State<SignInPage> {
   void _showSignInError(BuildContext context, Exception exception) {
     if (exception is FirebaseException &&
         exception.code == 'ERROR_ABORTED_BY_USER') {
@@ -31,7 +31,6 @@ class _SignInPageState extends State<SignInPage> {
   }
 
   Future<void> _signInAnonymously(BuildContext context) async {
-    final bloc = Provider.of<SignInBloc>(context, listen: false);
     try {
       bloc.setIsLoading(true);
       final auth = Provider.of<AuthBase>(context, listen: false);
@@ -44,7 +43,6 @@ class _SignInPageState extends State<SignInPage> {
   }
 
   Future<void> _signInWithGoogle(BuildContext context) async {
-    final bloc = Provider.of<SignInBloc>(context, listen: false);
     try {
       bloc.setIsLoading(true);
       final auth = Provider.of<AuthBase>(context, listen: false);
@@ -67,7 +65,6 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = Provider.of<SignInBloc>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
