@@ -1,17 +1,27 @@
+
+
 import 'package:flutter/material.dart';
-import 'package:rental/app/pages/home.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:rental/app/sidebar/sidebar.dart';
+import 'package:rental/bloc.navigation_bloc/navigation_bloc.dart';
 
 class SideBarLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+        body: BlocProvider<NavigationBloc>(
+      create: (context) => NavigationBloc(),
+      child: Stack(
         children: [
-          Home(),
+          BlocBuilder<NavigationBloc, NavigationStates>(
+            builder: (context, navigationState) {
+              return navigationState as Widget;
+            },
+          ),
           SideBar(),
         ],
       ),
-    );
+    ));
   }
 }

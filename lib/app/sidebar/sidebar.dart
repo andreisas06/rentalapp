@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rental/app/sidebar/menu_item.dart';
+import 'package:rental/bloc.navigation_bloc/navigation_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
 class SideBar extends StatefulWidget {
@@ -108,14 +110,29 @@ class _SideBarState extends State<SideBar>
                       MenuItem(
                         icon: Icons.home,
                         title: 'Home',
+                        onTap: () {
+                          onIconPressed();
+                          BlocProvider.of<NavigationBloc>(context)
+                              .add(NavigationEvents.HomePageClickedEvent);
+                        },
                       ),
                       MenuItem(
                         icon: Icons.person,
                         title: 'My Account',
+                        onTap: () {
+                          onIconPressed();
+                          BlocProvider.of<NavigationBloc>(context)
+                              .add(NavigationEvents.MyAccountClickedEvent);
+                        },
                       ),
                       MenuItem(
                         icon: Icons.saved_search,
                         title: 'Saved',
+                        onTap: () {
+                          onIconPressed();
+                          BlocProvider.of<NavigationBloc>(context)
+                              .add(NavigationEvents.MySavedClickedEvents);
+                        },
                       ),
                       Divider(
                         height: 64,
