@@ -6,6 +6,10 @@ import 'package:rental/app/sidebar/menu_item.dart';
 import 'package:rental/bloc.navigation_bloc/navigation_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
+import 'package:provider/provider.dart';
+import 'package:rental/common_widgets/show_alert_dialog.dart';
+import 'package:rental/services/auth.dart';
+
 class SideBar extends StatefulWidget {
   @override
   _SideBarState createState() => _SideBarState();
@@ -19,6 +23,26 @@ class _SideBarState extends State<SideBar>
   StreamSink<bool> isSidebarOpenedSink;
 
   final _animationDuration = const Duration(milliseconds: 500);
+
+  Future<void> _signOut(BuildContext context) async {
+    try {
+      final auth = Provider.of<AuthBase>(context, listen: false);
+      await auth.signOut();
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
+  Future<void> _confirmsSignOut(BuildContext context) async {
+    final didRequestSignOut = await showAlertDialog(context,
+        title: 'Logout',
+        content: 'Are you sure that you want to log out?',
+        cancelActionText: 'Cancel',
+        defaultActionText: 'Logout');
+    if (didRequestSignOut == true) {
+      _signOut(context);
+    }
+  }
 
   @override
   void initState() {
@@ -148,6 +172,7 @@ class _SideBarState extends State<SideBar>
                       MenuItem(
                         icon: Icons.exit_to_app,
                         title: 'Logout',
+                        onTap: () => _confirmsSignOut(context),
                       ),
                     ],
                   ),
