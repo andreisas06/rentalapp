@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:rental/app/home_page.dart';
 import 'package:rental/app/sidebar/sidebar_layout.dart';
@@ -9,6 +10,7 @@ import 'package:rental/services/auth.dart';
 class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
     final auth = Provider.of<AuthBase>(context, listen: false);
     return StreamBuilder<User>(
       stream: auth.authStateChanges(),

@@ -179,7 +179,7 @@ class _SideBarState extends State<SideBar>
                 ),
               ),
               Align(
-                alignment: Alignment(0, -0.8),
+                alignment: Alignment(0, -1),
                 child: GestureDetector(
                   onTap: () {
                     onIconPressed();

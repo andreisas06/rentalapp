@@ -30,6 +30,8 @@ dependencies:
   provider: 4.3.2+2
   rxdart: ^0.23.1
   flutter_bloc:
+  intl: ^0.16.1
+  carousel_pro: ^1.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -51,6 +53,7 @@ flutter:
   assets:
     - images/google-logo.png
     - images/facebook-logo.png
+    - images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

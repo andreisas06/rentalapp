@@ -62,7 +62,7 @@ class SignInPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Rental App'),
+        title: Text('Appear.'),
         elevation: 2,
       ),
       body: StreamBuilder<bool>(
