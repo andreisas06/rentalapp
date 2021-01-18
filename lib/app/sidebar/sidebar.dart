@@ -168,6 +168,11 @@ class _SideBarState extends State<SideBar>
                       MenuItem(
                         icon: Icons.settings,
                         title: 'Settings',
+                        onTap: () {
+                          onIconPressed();
+                          BlocProvider.of<NavigationBloc>(context).add(
+                              NavigationEvents.MySettingsPageClickedEvents);
+                        },
                       ),
                       MenuItem(
                         icon: Icons.exit_to_app,
