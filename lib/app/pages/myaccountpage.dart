@@ -108,7 +108,7 @@ class _MyAccountPageState extends State<MyAccountPage> {
                 RaisedButton(
                   onPressed: () {},
                   color: Color(0xFF1BB5FD),
-                  padding: EdgeInsets.symmetric(horizontal: 40),
+                  padding: EdgeInsets.symmetric(horizontal: 50),
                   elevation: 2,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
