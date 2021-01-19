@@ -70,7 +70,6 @@ class ItemDetailScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.only(top: 25, bottom: 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -115,7 +114,7 @@ class ItemDetailScreen extends StatelessWidget {
                             iconColor: Colors.white,
                             conBackColor: Colors.transparent,
                             onBtnTap: () {
-                              Navigator.of(context).pop(false);
+                              Navigator.of(context).pop();
                             }),
                         MenuWidget(
                           iconImg: Icons.favorite_border,

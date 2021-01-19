@@ -19,6 +19,7 @@ class ImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //to format the number in a specific way used just in case
     final oCcy = new NumberFormat("##,##,###", "en_INR");
     var screenWidth = MediaQuery.of(context).size.width;
 

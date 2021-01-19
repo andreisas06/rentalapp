@@ -16,20 +16,23 @@ class MenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      width: 50,
-      decoration: BoxDecoration(
-        color: conBackColor,
-        border: Border.all(
-          width: 2,
-          color: Color(0xFF1BB5FD),
+    return GestureDetector(
+      onTap: onBtnTap,
+      child: Container(
+        height: 50,
+        width: 50,
+        decoration: BoxDecoration(
+          color: conBackColor,
+          border: Border.all(
+            width: 2,
+            color: Color(0xFF1BB5FD),
+          ),
+          borderRadius: BorderRadius.circular(20),
         ),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Icon(
-        iconImg,
-        color: iconColor,
+        child: Icon(
+          iconImg,
+          color: iconColor,
+        ),
       ),
     );
   }
