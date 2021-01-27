@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return Provider<AuthBase>(
       create: (context) => Auth(),
       child: MaterialApp(
-        title: 'Rental App',
+        title: 'Appear.',
         theme: ThemeData(primarySwatch: Colors.indigo),
         home: LandingPage(),
       ),
