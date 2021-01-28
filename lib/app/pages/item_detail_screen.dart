@@ -220,7 +220,7 @@ class ItemDetailScreen extends StatelessWidget {
                   bottom: 20,
                 ),
                 child: Text(
-                  "Flawless 2 story on a family friendly cul-de-sac in the heart of Blue Valley! Walk in to an open floor plan flooded w daylightm, formal dining private office, screened-in lanai w fireplace, TV hookup & custom heaters that overlooks the lit basketball court.",
+                  "Occupying a prominent corner spot on Peter Street and the recently redeveloped Walker’s Court – home to Soho’s newest venue, the Boulevard Theatre – this refurbished, white-boxed shop to let is ideal for brands wanting to launch in front of Soho’s stylish young crowd. Over the road, Supreme still gets people queuing round the block for its weekly new collection releases and cult brands such as MC Overalls, Champion and Folk all call this area home, so this space would work well for streetwear ideas, or fashion and accessory ideas that will appeal to young consumers.",
                   textAlign: TextAlign.justify,
                   style: TextStyle(
                     fontSize: 15,
