@@ -166,7 +166,7 @@ class ItemDetailScreen extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            "20 hours ago",
+                            "23 hours ago",
                             style: Theme.of(context).textTheme.caption.copyWith(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
