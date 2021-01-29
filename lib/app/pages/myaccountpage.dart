@@ -18,7 +18,12 @@ class _MyAccountPageState extends State<MyAccountPage> {
       ),
       child: GestureDetector(
         onTap: () {
-          FocusScope.of(context).unfocus();
+          // FocusScope.of(context).unfocus();
+          FocusScopeNode currentFocus = FocusScope.of(context);
+          if (!currentFocus.hasPrimaryFocus &&
+              currentFocus.focusedChild != null) {
+            FocusManager.instance.primaryFocus.unfocus();
+          }
         },
         child: ListView(
           children: [

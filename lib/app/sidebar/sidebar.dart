@@ -187,6 +187,11 @@ class _SideBarState extends State<SideBar>
                 alignment: Alignment(0, -1),
                 child: GestureDetector(
                   onTap: () {
+                    FocusScopeNode currentFocus = FocusScope.of(context);
+                    if (!currentFocus.hasPrimaryFocus &&
+                        currentFocus.focusedChild != null) {
+                      FocusManager.instance.primaryFocus.unfocus();
+                    }
                     onIconPressed();
                   },
                   child: ClipPath(
