@@ -8,7 +8,7 @@ import 'package:intl/intl.dart';
 // import 'package:realestateapp/custom_widgets/menu_widget.dart';
 // import 'package:realestateapp/models/data_model.dart';
 import 'package:rental/common_widgets/floating_widget.dart';
-import 'package:rental/common_widgets/house_widget.dart';
+import 'package:rental/common_widgets/property_widget.dart';
 import 'package:rental/common_widgets/menu_widget.dart';
 import 'package:rental/models/data_model.dart';
 
@@ -213,7 +213,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.only(left: 10),
-                      child: HouseWidget(
+                      child: PropertyWidget(
                         type: typeArray[index],
                         number: propertyArray[index].toString(),
                       ),

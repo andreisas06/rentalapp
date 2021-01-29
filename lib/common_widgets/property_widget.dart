@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-
-class HouseWidget extends StatelessWidget {
+class PropertyWidget extends StatelessWidget {
   final String number;
   final String type;
-  HouseWidget({
+  PropertyWidget({
     this.number,
     this.type,
   });
@@ -31,7 +30,6 @@ class HouseWidget extends StatelessWidget {
                 fontSize: 20,
                 color: Colors.black,
                 fontWeight: FontWeight.w600,
-                
               ),
             ),
           ),
