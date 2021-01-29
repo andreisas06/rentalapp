@@ -110,10 +110,9 @@ class ImageWidget extends StatelessWidget {
             bottom: 10,
           ),
           child: Text(
-            house.bedrooms.toString() +
+            house.minBook.toString() +
                 " days min. booking / " +
-                house.bathrooms.toString() +
-                " bathrooms / " +
+              
                 house.squaremeters.toString() +
                 " m\u00B2",
             style: TextStyle(

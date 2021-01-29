@@ -12,7 +12,7 @@ import 'package:rental/common_widgets/house_widget.dart';
 import 'package:rental/common_widgets/menu_widget.dart';
 import 'package:rental/models/data_model.dart';
 
-class ItemDetailScreen extends StatelessWidget {
+class ItemDetailScreen extends StatefulWidget {
   Property property;
   List<String> imageList;
   int imgpath_index;
@@ -21,19 +21,26 @@ class ItemDetailScreen extends StatelessWidget {
     this.imgpath_index,
     this.imageList,
   );
-  final propertyArray = [
-    "1.416",
-    "4",
-    "2",
-    "2",
-    "3",
-  ];
+
+  @override
+  _ItemDetailScreenState createState() => _ItemDetailScreenState();
+}
+
+class _ItemDetailScreenState extends State<ItemDetailScreen> {
+  List<String> propertyArray;
+
+  @override
+  void initState() {
+    propertyArray = [
+      widget.property.squaremeters.toString(),
+      '${widget.property.minBook} Days',
+    ];
+    super.initState();
+  }
+
   final typeArray = [
     "Square meters",
-    "Bedrooms",
-    "Bedrooms",
-    "Garage",
-    "Kitchen",
+    "Minimum Booking",
   ];
 
   @override
@@ -82,13 +89,14 @@ class ItemDetailScreen extends StatelessWidget {
                       width: screenWidth,
                       child: Carousel(
                         images: [
-                          ExactAssetImage(imageList[imgpath_index]),
-                          ExactAssetImage(imageList[0]),
-                          ExactAssetImage(imageList[1]),
-                          ExactAssetImage(imageList[2]),
-                          ExactAssetImage(imageList[3]),
-                          ExactAssetImage(imageList[4]),
-                          ExactAssetImage(imageList[5]),
+                          ExactAssetImage(
+                              widget.imageList[widget.imgpath_index]),
+                          ExactAssetImage(widget.imageList[0]),
+                          ExactAssetImage(widget.imageList[1]),
+                          ExactAssetImage(widget.imageList[2]),
+                          ExactAssetImage(widget.imageList[3]),
+                          ExactAssetImage(widget.imageList[4]),
+                          ExactAssetImage(widget.imageList[5]),
                         ],
                         showIndicator: true,
                         borderRadius: false,
@@ -135,7 +143,9 @@ class ItemDetailScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '\$' + "${oCcy.format(property.amount)}" + '\/day',
+                          '\$' +
+                              "${oCcy.format(widget.property.amount)}" +
+                              '\/day',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 25,
@@ -144,7 +154,7 @@ class ItemDetailScreen extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.only(top: 5),
                           child: Text(
-                            property.address,
+                            widget.property.address,
                             style: TextStyle(
                               fontSize: 13,
                               color: Colors.grey,

@@ -3,18 +3,18 @@ class Property {
     this.id,
     this.amount,
     this.address,
-    this.bedrooms,
-    this.bathrooms,
+    this.minBook,
+    
     this.squaremeters,
-    this.garages,
-    this.kitchen,
+    
+    
   });
 
   int amount;
-  int bedrooms;
-  int bathrooms;
-  int garages;
-  int kitchen;
+  int minBook;
+  
+  
+  
   String address;
   double squaremeters;
   int id;

@@ -191,8 +191,14 @@ class _SideBarState extends State<SideBar>
                     if (!currentFocus.hasPrimaryFocus &&
                         currentFocus.focusedChild != null) {
                       FocusManager.instance.primaryFocus.unfocus();
-                    }
-                    onIconPressed();
+                      Future.delayed(
+                        Duration(milliseconds: 250),
+                        () {
+                          onIconPressed();
+                        },
+                      );
+                    } else
+                      onIconPressed();
                   },
                   child: ClipPath(
                     clipper: CustomMenuClipper(),

@@ -11,7 +11,7 @@ class HouseWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Container(
           height: 70,
@@ -26,10 +26,12 @@ class HouseWidget extends StatelessWidget {
           child: Center(
             child: Text(
               number,
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.black,
                 fontWeight: FontWeight.w600,
+                
               ),
             ),
           ),
