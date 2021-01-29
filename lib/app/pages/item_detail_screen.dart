@@ -21,7 +21,7 @@ class ItemDetailScreen extends StatelessWidget {
     this.imgpath_index,
     this.imageList,
   );
-  final houseArray = [
+  final propertyArray = [
     "1.416",
     "4",
     "2",
@@ -199,13 +199,13 @@ class ItemDetailScreen extends StatelessWidget {
                 child: ListView.builder(
                   shrinkWrap: false,
                   scrollDirection: Axis.horizontal,
-                  itemCount: houseArray.length,
+                  itemCount: propertyArray.length,
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: HouseWidget(
                         type: typeArray[index],
-                        number: houseArray[index].toString(),
+                        number: propertyArray[index].toString(),
                       ),
                     );
                   },
