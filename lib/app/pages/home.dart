@@ -19,7 +19,7 @@ class Home extends StatelessWidget with NavigationStates {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-              child: Padding(
+        child: Padding(
           padding: const EdgeInsets.only(
             right: 20,
             left: 20,
@@ -30,33 +30,38 @@ class Home extends StatelessWidget with NavigationStates {
               SizedBox(
                 height: 35,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  MenuWidget(
-                    iconImg: Icons.filter_alt_outlined,
-                    iconColor: Color(0xFF1BB5FD),
-                  ),
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.end,
+              //   children: [
+              //     MenuWidget(
+              //       iconImg: Icons.filter_alt_outlined,
+              //       iconColor: Color(0xFF1BB5FD),
+              //     ),
+              //   ],
+              // ),
               SizedBox(
                 height: 10,
               ),
+
               Padding(
                 padding: const EdgeInsets.only(left: 0, bottom: 10),
-                child: Text(
-                  'City',
-                  style: TextStyle(fontSize: 20, color: Colors.grey[600]),
+                child: Center(
+                  child: Text(
+                    'City',
+                    style: TextStyle(fontSize: 20, color: Colors.grey[600]),
+                  ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 0),
-                child: Text(
-                  'Bucharest',
-                  style: TextStyle(
-                      fontSize: 35,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w700),
+                child: Center(
+                  child: Text(
+                    'Bucharest',
+                    style: TextStyle(
+                        fontSize: 35,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w700),
+                  ),
                 ),
               ),
               Divider(
@@ -81,8 +86,8 @@ class Home extends StatelessWidget with NavigationStates {
               ),
               Column(
                 children: List.generate(Constants.propertyList.length, (index) {
-                  return ImageWidget(
-                      Constants.propertyList[index], index, Constants.imageList);
+                  return ImageWidget(Constants.propertyList[index], index,
+                      Constants.imageList);
                 }),
               ),
             ],
