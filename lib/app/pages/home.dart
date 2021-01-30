@@ -3,7 +3,7 @@ import 'package:rental/bloc.navigation_bloc/navigation_bloc.dart';
 
 import 'package:rental/common_widgets/filter_widget.dart';
 import 'package:rental/common_widgets/image_widget.dart';
-import 'package:rental/common_widgets/menu_widget.dart';
+
 import 'package:rental/constants.dart';
 
 class Home extends StatelessWidget with NavigationStates {
@@ -30,15 +30,7 @@ class Home extends StatelessWidget with NavigationStates {
               SizedBox(
                 height: 35,
               ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.end,
-              //   children: [
-              //     MenuWidget(
-              //       iconImg: Icons.filter_alt_outlined,
-              //       iconColor: Color(0xFF1BB5FD),
-              //     ),
-              //   ],
-              // ),
+              
               SizedBox(
                 height: 10,
               ),

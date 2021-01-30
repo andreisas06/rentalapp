@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rental/bloc.navigation_bloc/navigation_bloc.dart';
 
-import 'package:rental/common_widgets/filter_widget.dart';
 import 'package:rental/common_widgets/image_widget.dart';
-import 'package:rental/common_widgets/menu_widget.dart';
+
 import 'package:rental/constants.dart';
 
 class MySavedPage extends StatelessWidget with NavigationStates {
