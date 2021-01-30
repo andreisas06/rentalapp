@@ -38,7 +38,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
     super.initState();
   }
 
-  final typeArray = [
+  final infoArray = [
     "Square meters",
     "Minimum Booking",
   ];
@@ -214,7 +214,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                     return Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: PropertyWidget(
-                        type: typeArray[index],
+                        type: infoArray[index],
                         number: propertyArray[index].toString(),
                       ),
                     );
